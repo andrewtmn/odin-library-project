@@ -21,9 +21,30 @@
         </div>
 
         <div id="new-book">
-            <button type="button">New Book</button>
+            <button type="button" id="new-book-btn">New Book</button>
         </div>
 
+        <div id="new-book-popup">
+            <form id="new-book-form">
+                <h1>New Book</h1>
+
+                <label for="name">
+                    <input type="text" id="name" placeholder="Name" name="name" required>
+                </label>
+
+                <label for="author">
+                    <input type="text" id="author" placeholder="Author" name="author" required>
+                </label>
+
+                <label for="date">
+                    <input type="text" id="date" placeholder="Publish date" name="date" required>
+                </label>
+
+                <label for="pages">
+                    <input type="number" id="pages" placegolder="Number of pages" name="pages" required>
+                </label>
+            </form>
+        </div>
         <script src="library.js"></script>
     </body>
 </html>

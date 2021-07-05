@@ -74,6 +74,13 @@ function addAttributesToBookEntry(bookEntry, book) {
     bookEntry.appendChild(bookRead);
 }
 
+const newBookBtn = document.querySelector('#new-book-btn');
+newBookBtn.addEventListener('click', newBook);
+
+function newBook(event) {
+        
+}
+
 addBookToLibrary("Clean Code", "author", new Date(2008, 7, 1), 800);
 addBookToLibrary("The Pragmatic Programmer", "author", new Date(1999, 9, 1), 750);
 

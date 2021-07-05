@@ -67,6 +67,16 @@ h1 {
     padding: 10px;
 }
 
-#new-book button {
+#new-book-btn {
     padding: 4px;
+}
+
+#new-book-popup {
+    display: block;
+    position: relative;
+}
+
+#new-book-form {
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
 }
