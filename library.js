@@ -75,10 +75,17 @@ function addAttributesToBookEntry(bookEntry, book) {
 }
 
 const newBookBtn = document.querySelector('#new-book-btn');
-newBookBtn.addEventListener('click', newBook);
+newBookBtn.addEventListener('click', openForm);
 
-function newBook(event) {
-        
+function openForm() {
+    document.getElementById("new-book-popup").style.display = "block";
+}
+
+const cancelBtn = document.getElementById("cancel-new-book");
+cancelBtn.addEventListener('click', closeForm);
+
+function closeForm() {
+    document.getElementById("new-book-popup").style.display = "none";
 }
 
 addBookToLibrary("Clean Code", "author", new Date(2008, 7, 1), 800);
