@@ -8,6 +8,7 @@ Date.prototype.yyyymmdd = function() {
   };
 
 let library = [];
+let count = 0;
 
 function Book(name, author, publishDate, numPages) {
     this.name = name;
@@ -23,17 +24,20 @@ function addBookToLibrary(name, author, publishDate, numPages) {
 }
 
 function displayBooksInLibrary() {
+    console.log('called');
     let display = document.getElementById("book-display");
-    for (let i = 0; i < library.length; i++) {
+    for (let i = count; i < library.length; i++) {
         let book = document.createElement("div");
         book.setAttribute("class", "book-table-item");
         book.setAttribute("id", library[i].name);
+        book.setAttribute("data-index", i);
 
         addAttributesToBookEntry(book, library[i]);
         addReadToggleBtn(book);
         addRemoveBookBtn(book);
 
         display.appendChild(book);
+        count++;
     }
 
     document.documentElement.style.setProperty("--rowNum", library.length);
@@ -59,8 +63,13 @@ function addAttributesToBookEntry(bookEntry, book) {
     let bookAuthor = document.createElement("p");
     bookAuthor.innerText = book.author;
     let bookPublishDate = document.createElement("p");
-    bookPublishDate.innerText =
+    if (book.publishDate instanceof Date) {
+        console.log("instance");
+        bookPublishDate.innerText =
             book.publishDate.yyyymmdd();
+    } else {
+        bookPublishDate.innerText = book.publishDate;
+    }
     let bookPages = document.createElement("p");
     bookPages.innerText = book.numPages;
     let bookRead = document.createElement("p");
@@ -72,6 +81,23 @@ function addAttributesToBookEntry(bookEntry, book) {
     bookEntry.appendChild(bookPublishDate);
     bookEntry.appendChild(bookPages);
     bookEntry.appendChild(bookRead);
+}
+
+document.getElementById("submit").onclick = addNewBook;
+
+function addNewBook() {
+    let name = document.getElementById("name");
+    let author = document.getElementById("author");
+    let date = document.getElementById("date");
+    let pages = document.getElementById("pages");
+    console.log("got elements", name.value, author.value, date.value, pages.value);
+    addBookToLibrary(name.value, author.value, date.value, pages.value);
+    displayBooksInLibrary();
+    name.value = '';
+    author.value = '';
+    date.value = '';
+    pages.value = '';
+    closeForm();
 }
 
 const newBookBtn = document.querySelector('#new-book-btn');
