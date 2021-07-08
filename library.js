@@ -52,14 +52,14 @@ function displayBooksInLibrary() {
 function addReadToggleBtn(book) {
     let toggleReadStatus = document.createElement("BUTTON");
     toggleReadStatus.setAttribute("class", "toggle-read-btn");
-    toggleReadStatus.innerText = "Toggle Read Status";
+    toggleReadStatus.innerText = "Read";
     book.appendChild(toggleReadStatus);
 }
 
 function addRemoveBookBtn(book) {
     let removeBookBtn = document.createElement("BUTTON");
     removeBookBtn.setAttribute("class", "remove-book-btn");
-    removeBookBtn.innerText = "Remove Book";
+    removeBookBtn.innerText = "Remove";
     book.appendChild(removeBookBtn);
 }
 

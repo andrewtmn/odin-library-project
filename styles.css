@@ -45,7 +45,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(var(--numBookTableAttributes), 13fr);
 
-    padding: 5px;
+    padding: 10px;
     border-style: solid;
     border-color: rgba(209, 209, 209, 0.835);
     border-width: 0.5px;
@@ -55,8 +55,28 @@ h1 {
     text-align: center;
 }
 
-.remove-book-btn {
+.remove-book-btn, .toggle-read-btn {
+    margin: 5%;
+    border: none;
+    border-radius: 5%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(224, 224, 224);
+    font-family: 'Nunito', sans-serif;
+}
 
+.remove-book-btn:hover, .toggle-read-btn:hover, #new-book-btn:hover {
+    background-color:rgba(143, 143, 143, 0.548)
+}
+
+#new-book-btn {
+    border:none;
+    border-radius: 5%;
+    background-color: rgb(224, 224, 224);
+    text-align: center;
+    text-decoration: none;
+    margin: 1%;
+    padding: 2%;
 }
 
 #new-book {
